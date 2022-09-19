@@ -9,6 +9,7 @@ export class AppComponent implements OnChanges, OnInit, OnDestroy {
 
   name!:string;
   cities = ['Barcelona','Madrid','Lima']
+  selection!:string;
   title = 'projectCities';
   url = 'https://www.enter.co/wp-content/uploads/2020/03/21770-1024x768.jpg'
 
@@ -24,4 +25,12 @@ export class AppComponent implements OnChanges, OnInit, OnDestroy {
     console.log('ngOnDestroy');
   }
 
+  onCityClicked(city: string):void {
+    console.log('onCityClicked', city);
+    this.selection = city;
+  }
+
+  onClear():void {
+    this.selection = '';
+  }
 }

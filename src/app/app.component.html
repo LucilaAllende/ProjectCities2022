@@ -23,10 +23,16 @@
 
 <!--object-->
 <ul *ngFor="let city of cities" >
-  <li [ngClass]="{'selected':city === 'Lima', 'black':true }">{{city}}</li>
+  <li  (click)="onCityClicked(city)" [ngClass]="{'selected':city === selection, 'black':true}">{{city}}</li>
 </ul>
 
 <!--ngStyle-->
 <ul *ngFor="let city of cities" >
   <li [ngStyle]="{'color':'white','background-color': city==='Madrid' ? 'blue': 'purple'}">{{city}}</li>
 </ul>
+
+
+<div *ngIf="selection">
+  <p>Your city is: {{selection}} </p>
+  <button (click)="onClear()" >Clear</button>
+</div>
