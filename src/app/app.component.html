@@ -1,38 +1,14 @@
-<app-button></app-button>
 
 <p>{{title}} en Angular</p>
-<p> La suma de 5+5 es:{{5+5}}</p>
-<img src="{{url}}" alt="">
 
 <p *ngIf="name" >El nombre es: {{name}} </p>
 <input type="text" [(ngModel)]="name">
 
-<ul *ngFor="let number of [0,1,2]" >
-  <li>{{number}}</li>
-</ul>
-
-<!--string-->
-<ul *ngFor="let city of cities" >
-  <li [ngClass]="'selected blue'">{{city}}</li>
-</ul>
-
-<!--string[]-->
-<ul *ngFor="let city of cities" >
-  <li [ngClass]="['selected', 'pink']">{{city}}</li>
-</ul>
-
-<!--object-->
 <ul *ngFor="let city of cities" >
   <li  (click)="onCityClicked(city)" [ngClass]="{'selected':city === selection, 'black':true}">{{city}}</li>
 </ul>
 
-<!--ngStyle-->
-<ul *ngFor="let city of cities" >
-  <li [ngStyle]="{'color':'white','background-color': city==='Madrid' ? 'blue': 'purple'}">{{city}}</li>
-</ul>
-
-
 <div *ngIf="selection">
   <p>Your city is: {{selection}} </p>
-  <button (click)="onClear()" >Clear</button>
+  <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear'" [selected]="selection" ></app-button>
 </div>
