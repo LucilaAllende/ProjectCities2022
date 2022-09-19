@@ -1,14 +1,24 @@
+<div class="container">
 
-<p>{{title}} en Angular</p>
+  <div class="col-md-12 my-3">
+    <app-form-new-item [label]="'city'" [className]="'btn-info'" (newItemEvent)="addNewCity($event)" ></app-form-new-item>
+  </div>
 
-<p *ngIf="name" >El nombre es: {{name}} </p>
-<input type="text" [(ngModel)]="name">
-
-<ul *ngFor="let city of cities" >
-  <li  (click)="onCityClicked(city)" [ngClass]="{'selected':city === selection, 'black':true}">{{city}}</li>
-</ul>
-
-<div *ngIf="selection">
-  <p>Your city is: {{selection}} </p>
-  <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear'" [selected]="selection" ></app-button>
+  <div class="row">
+    <div class="col-md-8">
+      <ul >
+        <li *ngFor="let city of cities" 
+          (click)="onCityClicked(city)" 
+          [ngClass]="{'alert alert-info':city === selection, 'black':true}">
+          {{city}}
+      </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <div *ngIf="selection">
+        <p>Your city is: {{selection}} </p>
+        <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear'"></app-button>
+      </div>
+    </div>
+  </div>
 </div>

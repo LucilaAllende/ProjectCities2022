@@ -8,7 +8,6 @@ import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@
 export class ButtonComponent implements OnChanges,OnInit, OnDestroy {
   @Input() color!:string;
   @Input() label!:string;
-  @Input() selected!:string;
 
   constructor() { }
 

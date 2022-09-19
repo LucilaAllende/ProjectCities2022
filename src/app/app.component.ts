@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   name!:string;
-  cities = ['Barcelona','Madrid','Lima']
+  cities = ['Barcelona','Madrid','Lima','Quito']
   selection!:string;
   title = 'projectCities';
   url = 'https://www.enter.co/wp-content/uploads/2020/03/21770-1024x768.jpg'
@@ -20,5 +20,9 @@ export class AppComponent {
 
   onClear():void {
     this.selection = '';
+  }
+
+  addNewCity(city:string):void{
+    this.cities.push(city);
   }
 }
