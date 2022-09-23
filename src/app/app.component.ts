@@ -12,6 +12,7 @@ export class AppComponent {
   selection!:string;
   title = 'projectCities';
   url = 'https://www.enter.co/wp-content/uploads/2020/03/21770-1024x768.jpg'
+  criteria = ''
 
   onCityClicked(city: string):void {
     console.log('onCityClicked', city);

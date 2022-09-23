@@ -1,14 +1,32 @@
 <div class="container">
-
-  <div class="col-md-12 my-3">
-    <app-form-new-item [label]="'city'" [className]="'btn-info'" (newItemEvent)="addNewCity($event)" ></app-form-new-item>
-  </div>
-
   <div class="row">
+    <div class="col-md-6 my-3">
+      <app-form-new-item 
+        [label]="'city'" 
+        [className]="'btn-info'" 
+        (newItemEvent)="addNewCity($event)" >
+      </app-form-new-item>
+    </div>
+    <div class="col-md-6 my-3">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Filter"
+        [(ngModel)]="criteria"
+        >
+        <div class="col-md-6">
+          <p> {{ '6/15/15, 9:03' | date}} </p>
+          <p> {{ '6/15/15, 9:03' | date:'full'}} </p>
+          <p> My birthday {{ '6/15/15, 9:03' | date:'short' | uppercase}} </p>
+          <p> {{'999'| currency}} </p>
+          <p> {{'999'| currency:'EUR'}} </p>
+        </div>
+    </div>
+    <hr>
     <div class="col-md-8">
       <ul>
         <app-cities 
-        *ngFor="let city of cities" 
+        *ngFor="let city of (cities | filter:criteria)" 
         [city]="city" 
         [selection]="selection"
         (cityClickedEvent)="onCityClicked($event)"
